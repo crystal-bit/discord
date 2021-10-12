@@ -1,7 +1,9 @@
 {{/*
 	Handles messages for the leveling system.
-	Fork of <https://yagpdb-cc.github.io/leveling/message-handler> for more information.
-
+	
+	See template docs here: https://docs.yagpdb.xyz/reference/templates
+	
+	Fork of <https://yagpdb-cc.github.io/leveling/message-handler> 
 	Original Author: jo3-l <https://github.com/jo3-l>
 	Edited by: davcri <https://davcri.github.io>
  */}}
