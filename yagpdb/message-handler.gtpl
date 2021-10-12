@@ -38,10 +38,10 @@
 						{{ $toAdd := or ($roleRewards.Get (json $newLvl)) 0 }} {{/* Try to get the role reward for this level */}}
 						
 						{{ range $level, $reward := $roleRewards }} {{/* Loop over role rewards */}}
-							{{- if and (ge (toInt $newLvl) (toInt $level)) (not (hasRoleID $reward)) (eq $type "stack") (ne $level "type") }} {{- addRoleID $reward }}
-							{{- else if and (hasRoleID $reward) (eq $type "highest") $toAdd }} {{- removeRoleID $reward }} {{- end -}}
+							{{- if and (ge (toInt $newLvl) (toInt $level)) (not (targetHasRoleID $mentionedUser.ID $reward)) (eq $type "stack") (ne $level "type") }} {{- giveRoleID $mentionedUser.ID $reward }}
+							{{- else if and (targetHasRoleID $mentionedUser.ID $reward) (eq $type "highest") $toAdd }} {{- takeRoleID $mentionedUser.ID $reward }} {{- end -}}
 						{{ end }}
-						{{ if $toAdd }} {{ addRoleID $toAdd }} {{ end }}
+						{{ if $toAdd }} {{ giveRoleID $mentionedUser.ID $toAdd }} {{ end }}
 						{{ $embed := cembed 
 							"title" "❯ Level up!"
 							"thumbnail" (sdict "url" "https://webstockreview.net/images/emoji-clipart-celebration-4.png")
