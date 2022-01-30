@@ -1,9 +1,7 @@
 {{/*
 	Handles messages for the leveling system.
-	
-	See template docs here: https://docs.yagpdb.xyz/reference/templates
-	
-	Fork of <https://yagpdb-cc.github.io/leveling/message-handler> 
+	Fork of <https://yagpdb-cc.github.io/leveling/message-handler> for more information.
+
 	Original Author: jo3-l <https://github.com/jo3-l>
 	Edited by: davcri <https://davcri.github.io>
  */}}
@@ -20,7 +18,9 @@
 	{{ $content := lower .Message.Content }}
 	{{ $containsThanks := reFind "grazie" $content }}
 	{{ if $containsThanks }}
-		{{ $channel := or $settings.channel .Channel.ID }}
+		{{ $channel := 937406314395598869 }}
+		{{/* {{ $channel := or $settings.channel .Channel.ID }} */}}
+
 		{{ if gt (len .Message.Mentions) 0 }}
 			{{ $mentionedUser := index .Message.Mentions 0 }}
 			
